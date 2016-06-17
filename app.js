@@ -22,7 +22,7 @@ app.controller('MainCtrl', function($scope,$mdToast) {
             .theme("success-toast")
         );
     };
-    
+     
         $scope.api.onError = function(message){
         $mdToast.show(
           $mdToast.simple()
