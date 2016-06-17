@@ -1,6 +1,9 @@
 var app = angular.module('plunker', ['nvd3'])
 
 .controller('MainCtrl', function($scope) {
+	
+	 $scope.api = api;
+	$scope.api.onSuccess('Connecting ....');
     $scope.options = {
         chart: {
             type: 'lineChart',
