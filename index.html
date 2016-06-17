@@ -16,7 +16,7 @@
 
   <body ng-controller="MainCtrl">
     <button ng-click="run=!run">Start / Stop</button>
-    
+    {{api.currentValue}}  {{api.apiUnit}}
     <p>duration: 500</p>
     <nvd3 options="options" data="data"></nvd3>
     
