@@ -1,36 +1,16 @@
-var app = angular.module('plunker', ['nvd3'])
- .config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
-      .primaryPalette('blue')
-      .accentPalette('pink');
-    $mdThemingProvider.theme('success-toast');
-    $mdThemingProvider.theme('error-toast');
-    
-    $mdThemingProvider.alwaysWatchTheme(true);
-  }
+var app = angular.module('plunker', ['nvd3']);
 
-app.controller('MainCtrl', function($scope,$mdToast) {
+
+app.controller('MainCtrl', function($scope) {
 	
 	 $scope.api = api;
 	
 	    $scope.api.onSuccess = function(message){
-        $mdToast.show(
-          $mdToast.simple()
-            .content(message)
-            .position('top right')
-            .hideDelay(2500)
-            .theme("success-toast")
-        );
+
     };
      
         $scope.api.onError = function(message){
-        $mdToast.show(
-          $mdToast.simple()
-            .content(message)
-            .position('top right')
-            .hideDelay(2500)
-            .theme("error-toast")
-        );
+
     };
     
      $scope.api.onSuccess('Connecting ....');
