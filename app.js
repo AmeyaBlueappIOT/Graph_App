@@ -4,6 +4,36 @@ var app = angular.module('plunker', ['nvd3'])
 	
 	 $scope.api = api;
 	
+	    $scope.api.onSuccess = function(message){
+        $mdToast.show(
+          $mdToast.simple()
+            .content(message)
+            .position('top right')
+            .hideDelay(2500)
+            .theme("success-toast")
+        );
+    };
+    
+        $scope.api.onError = function(message){
+        $mdToast.show(
+          $mdToast.simple()
+            .content(message)
+            .position('top right')
+            .hideDelay(2500)
+            .theme("error-toast")
+        );
+    };
+    
+     $scope.api.onSuccess('Connecting ....');
+
+    $scope.toggleRelay = function() {
+        $scope.api.toggleRelay($scope.api.isOn);
+    };
+
+    $scope.api.updateUI = function(){
+        $scope.$apply();
+    };
+	
     $scope.options = {
         chart: {
             type: 'lineChart',
