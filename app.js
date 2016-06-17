@@ -31,9 +31,7 @@ var app = angular.module('plunker', ['nvd3'])
         }
     };
     
-    $scope.options1 = angular.copy($scope.options);
-    $scope.options1.chart.duration = 0;
-    $scope.options1.chart.yDomain = [2,16];
+  
     
     $scope.data = [{ values: [], key: 'Random Walk' }];
         
