@@ -1,6 +1,15 @@
 var app = angular.module('plunker', ['nvd3'])
+ .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue')
+      .accentPalette('pink');
+    $mdThemingProvider.theme('success-toast');
+    $mdThemingProvider.theme('error-toast');
+    
+    $mdThemingProvider.alwaysWatchTheme(true);
+  }
 
-.controller('MainCtrl', function($scope) {
+app.controller('MainCtrl', function($scope,$mdToast) {
 	
 	 $scope.api = api;
 	
