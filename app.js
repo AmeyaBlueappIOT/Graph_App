@@ -143,6 +143,7 @@ app.directive('liquidTank', function ($parse, $http) {
         console.log(scope.filledSteps);
         var fillPct = scope.filledSteps/scope.totalSteps;
 		console.log(fillPct);
+	$('#myPerc').val(fillPct);
         var fillHeight = c.height*fillPct;
         var lineY = c.height/scope.totalSteps;   // different steps 
         var coloredRing = {red:{r:150,g:50,b:100},green:{r:50,g:150,b:100},blue:{r:50,g:100,b:150}};
