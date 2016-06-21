@@ -135,7 +135,7 @@ app.directive('liquidTank', function ($parse, $http) {
 		console.log(scope.totalSteps);
 		console.log("current value in dir---"+window.api.currentValue+5);
         scope.filledSteps = (window.api.currentValue)*10/(scope.totalSteps+6);//_.random(1,scope.totalSteps-1);//(window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
-	
+	$('#myPerc').val(scope.filledSteps);
 	window.api.updateUI = function(){
         scope.draw();
         };
@@ -143,7 +143,7 @@ app.directive('liquidTank', function ($parse, $http) {
         console.log(scope.filledSteps);
         var fillPct = scope.filledSteps/scope.totalSteps;
 		console.log(fillPct);
-	$('#myPerc').val(fillPct);
+	
         var fillHeight = c.height*fillPct;
         var lineY = c.height/scope.totalSteps;   // different steps 
         var coloredRing = {red:{r:150,g:50,b:100},green:{r:50,g:150,b:100},blue:{r:50,g:100,b:150}};
