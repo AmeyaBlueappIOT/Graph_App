@@ -131,7 +131,7 @@ app.directive('liquidTank', function ($parse, $http) {
             pjs.size(c.width,c.height);
            pjs.background(255,255,255,0);
         }
-        scope.totalSteps = 10;//scope.steps[_.random(scope.steps.length-1)];
+        scope.totalSteps = 30;//scope.steps[_.random(scope.steps.length-1)];
 		console.log(scope.totalSteps);
 		console.log("current value in dir---"+window.api.currentValue+5);
         scope.filledSteps = (window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
