@@ -55,7 +55,7 @@ app.controller('MainCtrl', function($scope) {
     
   
     
-    $scope.data = [{ values: [], key: 'Random Walk' }];
+    $scope.data = [{ values: [], key: 'Current Value' }];
         
     $scope.run = true;
     
