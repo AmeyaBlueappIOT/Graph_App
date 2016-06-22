@@ -34,7 +34,8 @@
   <body ng-controller="MainCtrl">
 
     {{api.currentValue}}  {{api.apiUnit}}
-
+    <div class="light-blue-fg font-size-72 line-height-72 padding-top-9 ng-binding">
+{   {api.currentValue}} <sub style="font-size: 30px;"> {{api.apiUnit}} </sub>
 
 
     <nvd3 options="options" data="data"></nvd3>
