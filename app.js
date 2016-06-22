@@ -36,7 +36,7 @@ app.controller('MainCtrl', function($scope) {
             x: function(d){ return d.x; },
             y: function(d){ return d.y; },
             useInteractiveGuideline: true,
-            duration: 0,    
+            duration:1000,    
             yAxis: {
                 tickFormat: function(d){
                    return d3.format('.001f')(d);
