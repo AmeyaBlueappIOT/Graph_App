@@ -39,7 +39,7 @@ app.controller('MainCtrl', function($scope) {
             duration:1000,    
             yAxis: {
                 tickFormat: function(d){
-                   return d3.format('.001f')(d);
+                   return d3.format('.02f')(d);
                 }
             },
                         xAxis: {
