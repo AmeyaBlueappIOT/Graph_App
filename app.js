@@ -136,7 +136,7 @@ app.directive('liquidTank', function ($parse, $http) {
 		console.log(scope.totalSteps);
 		console.log("current value in dir---"+window.api.currentValue+5);
         scope.filledSteps = (window.api.currentValue)*10/(scope.totalSteps+6);//_.random(1,scope.totalSteps-1);//(window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
-	$('#fillPercentage').val(scope.filledSteps);
+	$('#fillPercentage').text(scope.filledSteps);
 //	$("#fillPercentage").text(fillPct*100+"%");
 	window.api.updateUI = function(){
         scope.draw();
