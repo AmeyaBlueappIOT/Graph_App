@@ -14,6 +14,7 @@
             this.isOn = false;
             this.apiUnit = 'mA';
             this.currentValue = 0;
+            this.currentDate = 0;
             this.shuntVoltage = 0;
             this.busVoltage = 0;
             this.characteristics = {};
@@ -116,9 +117,9 @@
                     var d = new Date();
                     var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
                     console.log("in api.js working");
-                    
+                    api.currentDate =  currDate;
                    
-                    console.log("temp date-----"+currDate);
+                    console.log("temp date----api.currentDate--"+api.currentDate);
                 }
                     
                 
