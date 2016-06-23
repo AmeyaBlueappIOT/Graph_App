@@ -117,13 +117,8 @@
                     var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
                     console.log("in api.js working");
                     
-                    if(!isNaN(Number(api.currentValue))){
-                    this.currTempData = {
-                                timeNum: dt,
-                                date: currDate,
-                                temp: Number(tempAmb)
-                    }
-                    console.log("temp date---"+this.currTempData.date);
+                   
+                    console.log("temp date---"+currDate);
       }
                     
                 }
