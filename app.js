@@ -60,11 +60,11 @@ app.controller('MainCtrl', function($scope) {
         
     $scope.run = true;
     
-    var x = 20;
+    var x ;
      
     setInterval(function(){
 	    if (!$scope.run) return;
-	    $scope.data[0].values.push({ x: x,	y: $scope.api.currentValue});
+	    $scope.data[0].values.push({ x: $scope.api.currentDate,	y: $scope.api.currentValue});
       if ($scope.data[0].values.length > 20) $scope.data[0].values.shift();
 	    x++;
 	    
