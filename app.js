@@ -29,7 +29,7 @@ app.controller('MainCtrl', function($scope) {
             height: 400,
             margin : {
                 top: 20,
-                right: 20,
+                right: 25,
                 bottom: 40,
                 left: 55
             },
