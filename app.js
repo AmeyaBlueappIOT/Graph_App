@@ -47,7 +47,7 @@ app.controller('MainCtrl', function($scope) {
                 tickFormat: function(d){
                   var d = new Date();
      var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
-                    return currDate;
+                    return $scope.api.currentDate;
                 }
 }
         }
