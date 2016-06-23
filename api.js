@@ -118,8 +118,8 @@
                     console.log("in api.js working");
                     
                    
-                    console.log("temp date---"+currDate);
-      }
+                    console.log("temp date-----"+currDate);
+                }
                     
                 
                 if (characteristic.uuid === RELAY_UUID) {
