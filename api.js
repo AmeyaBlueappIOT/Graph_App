@@ -17,7 +17,8 @@
             this.shuntVoltage = 0;
             this.busVoltage = 0;
             this.characteristics = {};
-
+            this.currTempData = [];
+            
             gateway = navigator.bluetooth.gateway;
 
             gateway.onstate = function(error) {
@@ -111,6 +112,20 @@
                 if (characteristic.uuid === CURRENT_UUID) {
                     api.currentValue = api.calcApiReading(characteristic.value) * 0.01;
                     api.currentValue = api.currentValue.toFixed(2);
+                    
+                    var d = new Date();
+                    var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+                    console.log("in api.js working");
+                    
+                    if(!isNaN(Number(api.currentValue))){
+                    this.currTempData = {
+                                timeNum: dt,
+                                date: currDate,
+                                temp: Number(tempAmb)
+                    }
+                    console.log("temp date---"+this.currTempData.date);
+      }
+                    
                 }
                 if (characteristic.uuid === RELAY_UUID) {
                     var relayC = characteristic.value;
