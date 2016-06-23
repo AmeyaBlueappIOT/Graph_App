@@ -45,8 +45,9 @@ app.controller('MainCtrl', function($scope) {
                         xAxis: {
                 axisLabel:'Time',
                 tickFormat: function(d){
-                  var d = new Date();
-     var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+                  //var d = new Date();
+     		//	var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+     		console.log("in app js---"+$scope.api.currentDate);
                     return $scope.api.currentDate;
                 }
 }
