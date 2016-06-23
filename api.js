@@ -1,7 +1,7 @@
 (function() {
 
     var gateway = null;
-    var dt = 0;
+   // var dt = 0;
     const SERVICE_UUID      = "1234";
 
     const SHUNT_VOLT_UUID   = "1236";
@@ -121,7 +121,7 @@
                     console.log("temp date---"+currDate);
       }
                     
-                }
+                
                 if (characteristic.uuid === RELAY_UUID) {
                     var relayC = characteristic.value;
                     if(characteristic.value === '00'){    //ON
