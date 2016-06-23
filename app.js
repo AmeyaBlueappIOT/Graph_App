@@ -26,7 +26,7 @@ app.controller('MainCtrl', function($scope) {
     $scope.options = {
         chart: {
             type: 'lineChart',
-            height: 180,
+            height: 400,
             margin : {
                 top: 20,
                 right: 20,
@@ -36,7 +36,7 @@ app.controller('MainCtrl', function($scope) {
             x: function(d){ return d.x; },
             y: function(d){ return d.y; },
             useInteractiveGuideline: true,
-            duration:1000,    
+            duration:0,    
             yAxis: {
                 tickFormat: function(d){
                    return d3.format('.02f')(d);
@@ -130,6 +130,7 @@ app.directive('liquidTank', function ($parse, $http) {
         pjs.setup = function() {
             pjs.size(c.width,c.height);
            pjs.background(255,255,255,0);
+           pjs.strokeWeight(8.0);
         }
         scope.totalSteps = 10;//scope.steps[_.random(scope.steps.length-1)];
 		console.log(scope.totalSteps);
@@ -151,13 +152,14 @@ app.directive('liquidTank', function ($parse, $http) {
         pjs.draw = function() {
           //background color
          pjs.fill(200);
+         pjs.stroke(202,194,192);
 		  
 		  // rectangle
           pjs.rect(0,20,c.width-1,c.height-40);
           //filled portion
           pjs.fill(scope.color[0],scope.color[1],scope.color[2]);
 		  // Bottom Ellipsis
-         pjs.ellipse(c.width/2,c.height-20,c.width-1,20);
+//         pjs.ellipse(c.width/2,c.height-20,c.width-1,20);
          pjs.rect(0,lineY*(scope.totalSteps-scope.filledSteps),c.width-1,fillHeight-20);
           //ghetto fix to make bottom of tank look nice
           pjs.stroke(scope.color[0],scope.color[1],scope.color[2]);
@@ -172,20 +174,20 @@ app.directive('liquidTank', function ($parse, $http) {
           } else {
             pjs.stroke(0);
           }
-          pjs.ellipse(c.width/2,lineY*(scope.totalSteps-scope.filledSteps),c.width-3,20);
+//	  pjs.ellipse(c.width/2,lineY*(scope.totalSteps-scope.filledSteps),c.width-3,20);
           //top(closing) ellipsis
           pjs.fill(200);
           pjs.stroke(63);
-          pjs.ellipse(c.width/2,20,c.width,20);
+        //  pjs.ellipse(c.width/2,20,c.width,20);
           //measurement marks
           pjs.fill(0);
           pjs.stroke(127);
 		  
 		  // steps print ex: 33% 66%
-          for(var i = 1; i < scope.totalSteps; i++) {
+          /*for(var i = 1; i < scope.totalSteps; i++) {
              pjs.line(1,lineY*i,40,lineY*i);
             pjs.text((scope.totalSteps-i)*Math.floor(100/scope.totalSteps)+'%',42,lineY*i+5);
-          }
+          }*/
         }
         
         pjs.setup();
