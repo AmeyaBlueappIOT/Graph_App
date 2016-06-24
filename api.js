@@ -121,15 +121,15 @@
                    
                     console.log("temp date----api.currentDate--"+api.currentDate);
                     
-                    this.currTempData = {
+                    api.currTempData = {
                         timeNum: dt,
                         date: currDate,
                         valueCurr: api.currentValue
                     }
                     
-                    console.log("temp date----new--"+this.currTempData.timeNum);
-                    console.log("temp date----new--"+this.currTempData.date);
-                    console.log("temp date----new--"+this.currTempData.valueCurr);
+                    console.log("temp date----new--"+api.currTempData.timeNum);
+                    console.log("temp date----new--"+api.currTempData.date);
+                    console.log("temp date----new--"+api.currTempData.valueCurr);
                     
                     
                     dt++;  
