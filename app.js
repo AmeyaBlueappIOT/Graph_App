@@ -74,7 +74,7 @@ app.controller('MainCtrl', function($scope) {
 	   x++; 
 	   
       $scope.$apply(); // update both chart
-    },5000);        
+    },1000);        
 });
 
 
