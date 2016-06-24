@@ -131,29 +131,12 @@
                     console.log("temp date----new--"+api.currTempData.date);
                     console.log("temp date----new--"+api.currTempData.valueCurr);
                     
-                    
-                    dt++;  
-                    
+                     dt++;  
+                     api.updateUI();
                 }
                     
-                
-                if (characteristic.uuid === RELAY_UUID) {
-                    var relayC = characteristic.value;
-                    if(characteristic.value === '00'){    //ON
-                        api.isOn = true;
-                    }else{                            //OFF
-                        api.isOn = false;
-                    }
-                }
-                if (characteristic.uuid === SHUNT_VOLT_UUID) {
-                    api.shuntVoltage = api.calcApiReading(characteristic.value) * 0.01;
-                    api.shuntVoltage = api.shuntVoltage.toFixed(2);
-                }
-                if (characteristic.uuid === BUS_VOLT_UUID) {
-                    api.busVoltage = api.calcApiReading(characteristic.value) * 0.01;
-                    api.busVoltage = api.busVoltage.toFixed(2);
-                }
-                api.updateUI();
+              
+               
             };
 
             gateway.onwriteValue = function(peripheral, service, characteristic, error) {
