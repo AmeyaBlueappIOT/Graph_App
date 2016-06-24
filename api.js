@@ -1,7 +1,7 @@
 (function() {
 
     var gateway = null;
-   // var dt = 0;
+    var dt = 0;
     const SERVICE_UUID      = "1234";
 
     const SHUNT_VOLT_UUID   = "1236";
@@ -19,7 +19,7 @@
             this.busVoltage = 0;
             this.characteristics = {};
             this.currTempData = [];
-            
+   
             gateway = navigator.bluetooth.gateway;
 
             gateway.onstate = function(error) {
@@ -120,6 +120,20 @@
                     api.currentDate =  currDate;
                    
                     console.log("temp date----api.currentDate--"+api.currentDate);
+                    
+                    this.currTempData = {
+                        timeNum: dt,
+                        date: currDate,
+                        valueCurr: api.currentValue
+                    }
+                    
+                    console.log("temp date----new--"+this.currTempData.timeNum);
+                    console.log("temp date----new--"+this.currTempData.currDate);
+                    console.log("temp date----new--"+this.currTempData.valueCurr);
+                    
+                    
+                    dt++;  
+                    
                 }
                     
                 
