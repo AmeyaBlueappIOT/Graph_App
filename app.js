@@ -45,11 +45,10 @@ app.controller('MainCtrl', function($scope) {
                         xAxis: {
                 axisLabel:'Time',
                 tickFormat: function(d){
-                  //var d = new Date();
-     		//	var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
-     		console.log("in app js---"+$scope.api.currTempData.date);
-     		console.log("time num ------"+$scope.api.currTempData.timeNum);
-                    return $scope.api.currTempData.date;
+                if($scope.data[0].values[d]){
+                    var label = $scope.data[0].values[d].label;
+                        return label;
+                    }
                 }
 }
         }
@@ -61,15 +60,19 @@ app.controller('MainCtrl', function($scope) {
         
     $scope.run = true;
     
-    var x =20;
+    var x =0;
      
     setInterval(function(){
 	    if (!$scope.run) return;
-	    
-	    $scope.data[0].values.push({ x: $scope.api.currTempData.timeNum,	y: $scope.api.currentValue});
-      if ($scope.data[0].values.length > 20) $scope.data[0].values.shift();
-	    x++;
-	    
+	    if(!isNaN($scope.api.currTempData.timeNum) && !isNaN($scope.api.currentValue)){
+            $scope.data[0].values.push(
+                { x: $scope.api.currTempData.timeNum,
+                  y: $scope.api.currentValue,
+                  label: $scope.api.currTempData.date});
+            if ($scope.data[0].values.length > 20) $scope.data[0].values.shift();
+           }
+	   x++; 
+	   
       $scope.$apply(); // update both chart
     },5000);        
 });
