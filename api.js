@@ -128,7 +128,7 @@
                     }
                     
                     console.log("temp date----new--"+this.currTempData.timeNum);
-                    console.log("temp date----new--"+this.currTempData.currDate);
+                    console.log("temp date----new--"+this.currTempData.date);
                     console.log("temp date----new--"+this.currTempData.valueCurr);
                     
                     
