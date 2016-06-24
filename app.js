@@ -48,6 +48,7 @@ app.controller('MainCtrl', function($scope) {
                   //var d = new Date();
      		//	var currDate = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
      		console.log("in app js---"+$scope.api.currentDate);
+     		console.log("time num ------"+$scope.api.currTempData.timeNum);
                     return $scope.api.currTempData.date;
                 }
 }
@@ -64,7 +65,7 @@ app.controller('MainCtrl', function($scope) {
      
     setInterval(function(){
 	    if (!$scope.run) return;
-	    console.log("time num ------"+$scope.api.currTempData.timeNum);
+	    
 	    $scope.data[0].values.push({ x: x,	y: $scope.api.currentValue});
       if ($scope.data[0].values.length > 20) $scope.data[0].values.shift();
 	    x++;
