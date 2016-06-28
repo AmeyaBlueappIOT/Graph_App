@@ -1,7 +1,7 @@
-var app = angular.module('plunker', ['nvd3']);
+var app = angular.module('tankMonitorApp', ['nvd3']);
 
 
-app.controller('MainCtrl', function($scope) {
+app.controller('tankController', function($scope) {
 	
 	 $scope.api = api;
 	
