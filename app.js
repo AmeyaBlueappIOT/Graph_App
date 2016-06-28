@@ -69,8 +69,9 @@ app.controller('MainCtrl', function($scope) {
                 { x: $scope.api.currTempData.timeNum,
                   y: $scope.api.currentValue,
                   label: $scope.api.currTempData.date});
-            if ($scope.data[0].values.length > 100) $scope.data[0].values.shift();
+            
            }
+           if ($scope.data[0].values.length > 100) $scope.data[0].values.shift();
 	   x++; 
 	   
       $scope.$apply(); // update both chart
