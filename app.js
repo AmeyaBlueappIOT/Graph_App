@@ -76,7 +76,7 @@ app.controller('tankController', function($scope) {
            }
            if ($scope.data[0].values.length > 100) 
            {
-           	console.log("data length---"+$scope.data[0].values.length);
+           	console.log("data length----"+$scope.data[0].values.length);
            	$scope.data[0].values.shift();
            }
 	   x++; 
