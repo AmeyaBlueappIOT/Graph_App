@@ -179,10 +179,10 @@ app.directive('liquidTank', function ($parse, $http) {
          console.log('%c'+'fillHeight: '+fillHeight,'background:#000;color:#bd5');
         pjs.draw = function() {
           //background color
-         pjs.fill(200);
+         pjs.fill(224, 224, 224);
          pjs.stroke(202,194,192);
-		  
-		  // rectangle
+         
+	  // rectangle
           pjs.rect(0,20,c.width-1,c.height-40);
           //filled portion
           pjs.fill(scope.color[0],scope.color[1],scope.color[2]);
