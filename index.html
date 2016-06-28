@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="plunker">
+<html ng-app="tankMonitorApp">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SensorTag</title>
+    <title>Tank Monitor</title>
     <link rel='stylesheet prefetch' href='//cdnjs.cloudflare.com/ajax/libs/angular-material/0.9.7/angular-material.min.css'>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css" />
@@ -31,7 +31,7 @@
 <script src="api.js"></script>
 <script src="app.js"></script>
 
-  <body ng-controller="MainCtrl" class="thing" style = "background-color:#eaeaf5">
+  <body ng-controller="tankController" class="thing" style = "background-color:#eaeaf5">
     <div class="light-blue-fg font-size-72 line-height-72 padding-top-9 ng-binding" align="left">
       {{api.currentValue}} {{api.apiUnit}}  
     </div>
