@@ -15,9 +15,9 @@ app.controller('tankController', function($scope) {
     
      $scope.api.onSuccess('Connecting ....');
 
-    $scope.toggleRelay = function() {
+   /* $scope.toggleRelay = function() {
         $scope.api.toggleRelay($scope.api.isOn);
-    };
+    };*/
 
     $scope.api.updateUI = function(){
         $scope.$apply();
@@ -45,6 +45,7 @@ app.controller('tankController', function($scope) {
                         xAxis: {
                 axisLabel:'Time',
                 tickFormat: function(d){
+                	console.log("---------d-----------"+d);
                 if($scope.data[0].values[d]){
                     var label = $scope.data[0].values[d].label;
                         return label;
@@ -144,10 +145,10 @@ app.directive('liquidTank', function ($parse, $http) {
            pjs.strokeWeight(8.0);
         }
         scope.totalSteps = 10;//scope.steps[_.random(scope.steps.length-1)];
-		console.log(scope.totalSteps);
-		console.log("current value in dir---"+window.api.currentValue+5);
+	//	console.log(scope.totalSteps);
+	//	console.log("current value in dir---"+window.api.currentValue+5);
         scope.filledSteps = (8-1)*10/(scope.totalSteps+6);//_.random(1,scope.totalSteps-1);//(window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
-	var mypercentage = (scope.filledSteps + (8 / 16)) * 10
+	var mypercentage = (scope.filledSteps + (8 / 16)) * 10;
 	if (mypercentage>100)
 	{
 	    mypercentage = 100;
@@ -158,7 +159,7 @@ app.directive('liquidTank', function ($parse, $http) {
         scope.draw();
         };
 	
-        console.log(scope.filledSteps);
+    //    console.log(scope.filledSteps);
         var fillPct = 0;//scope.filledSteps/scope.totalSteps;
 		//console.log(fillPct);
 	if (scope.filledSteps != 0) {
@@ -170,7 +171,7 @@ app.directive('liquidTank', function ($parse, $http) {
 	}
         
         //var fillPct = scope.filledSteps/scope.totalSteps;
-		console.log(fillPct);
+	//	console.log(fillPct);
 		
 	
         var fillHeight = c.height*fillPct-10;
