@@ -127,10 +127,10 @@
                         valueCurr: api.currentValue
                     }
                     
-                    console.log("temp date----new--"+api.currTempData.timeNum);
-                    console.log("temp date----new--"+api.currTempData.date);
-                    console.log("temp date----new--"+api.currTempData.valueCurr);
-                    
+              //      console.log("temp date----new--"+api.currTempData.timeNum);
+              //      console.log("temp date----new--"+api.currTempData.date);
+              //      console.log("temp date----new--"+api.currTempData.valueCurr);
+                   
                      dt++;  
                      api.updateUI();
                 }
