@@ -74,7 +74,7 @@ app.controller('tankController', function($scope) {
                   label: $scope.api.currTempData.date});
             
            }
-           if ($scope.data[0].values.length > 10) 
+           if ($scope.data[0].values.length > 100) 
            {
            	console.log("data length---"+$scope.data[0].values.length);
            	$scope.data[0].values.shift();
