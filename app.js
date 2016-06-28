@@ -71,7 +71,11 @@ app.controller('MainCtrl', function($scope) {
                   label: $scope.api.currTempData.date});
             
            }
-           if ($scope.data[0].values.length > 100) $scope.data[0].values.shift();
+           if ($scope.data[0].values.length > 100) 
+           {
+           	console.log("data length---"+$scope.data[0].values.length);
+           	$scope.data[0].values.shift();
+           }
 	   x++; 
 	   
       $scope.$apply(); // update both chart
@@ -142,19 +146,34 @@ app.directive('liquidTank', function ($parse, $http) {
         scope.totalSteps = 10;//scope.steps[_.random(scope.steps.length-1)];
 		console.log(scope.totalSteps);
 		console.log("current value in dir---"+window.api.currentValue+5);
-        scope.filledSteps = (window.api.currentValue)*10/(scope.totalSteps+6);//_.random(1,scope.totalSteps-1);//(window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
-	$('#fillPercentage').text(scope.filledSteps);
+        scope.filledSteps = (window.api.currentValue-1)*10/(scope.totalSteps+6);//_.random(1,scope.totalSteps-1);//(window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
+	var mypercentage = (scope.filledSteps + (8 / 16)) * 10
+	if (mypercentage>100)
+	{
+	    mypercentage = 100;
+	}
+	$('#fillPercentage').text(mypercentage);
 //	$("#fillPercentage").text(fillPct*100+"%");
 	window.api.updateUI = function(){
         scope.draw();
         };
 	
         console.log(scope.filledSteps);
-        var fillPct = scope.filledSteps/scope.totalSteps;
+        var fillPct = 0;//scope.filledSteps/scope.totalSteps;
+		//console.log(fillPct);
+	if (scope.filledSteps != 0) {
+	    fillPct = scope.filledSteps / scope.totalSteps
+	}
+	else {
+	    fillPct = 0.0625;
+	    scope.filledSteps = 0.625;
+	}
+        
+        //var fillPct = scope.filledSteps/scope.totalSteps;
 		console.log(fillPct);
 		
 	
-        var fillHeight = c.height*fillPct;
+        var fillHeight = c.height*fillPct-10;
         var lineY = c.height/scope.totalSteps;   // different steps 
         var coloredRing = {red:{r:150,g:50,b:100},green:{r:50,g:150,b:100},blue:{r:50,g:100,b:150}};
          console.log('%c'+'fillHeight: '+fillHeight,'background:#000;color:#bd5');
@@ -169,9 +188,13 @@ app.directive('liquidTank', function ($parse, $http) {
           pjs.fill(scope.color[0],scope.color[1],scope.color[2]);
 		  // Bottom Ellipsis
 //         pjs.ellipse(c.width/2,c.height-20,c.width-1,20);
-         pjs.rect(0,lineY*(scope.totalSteps-scope.filledSteps),c.width-1,fillHeight-20);
+          pjs.stroke(202, 194, 192);
+          pjs.ellipse((c.width / 2), c.height -10, c.width+14, 10);
+          pjs.line(c.width / 2 - 100, c.width + c.width+30, c.width, c.width + c.width+30);
+
+         pjs.rect(0,lineY*(scope.totalSteps-scope.filledSteps),c.width-1,fillHeight-10);
           //ghetto fix to make bottom of tank look nice
-          pjs.stroke(scope.color[0],scope.color[1],scope.color[2]);
+          //pjs.stroke(scope.color[0],scope.color[1],scope.color[2]);
           pjs.rect(1,c.height-21,c.width-3,1);
           //top of filled liquid
           if(scope.color[0] > scope.color[1] && scope.color[0] > scope.color[2]) {
@@ -186,12 +209,15 @@ app.directive('liquidTank', function ($parse, $http) {
 //	  pjs.ellipse(c.width/2,lineY*(scope.totalSteps-scope.filledSteps),c.width-3,20);
           //top(closing) ellipsis
           pjs.fill(200);
-          pjs.stroke(63);
+         // pjs.stroke(63);
         //  pjs.ellipse(c.width/2,20,c.width,20);
           //measurement marks
-          pjs.fill(0);
-          pjs.stroke(127);
-		  
+          //pjs.fill(0);
+          //pjs.stroke(127);
+	  pjs.stroke(202, 194, 192);
+          pjs.ellipse(c.width / 2, 9, c.width - 8, 8);
+          pjs.stroke(202, 194, 192);
+          pjs.line(c.width / 2 - 100, 14, c.width, 14);
 		  // steps print ex: 33% 66%
           /*for(var i = 1; i < scope.totalSteps; i++) {
              pjs.line(1,lineY*i,40,lineY*i);
