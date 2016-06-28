@@ -146,13 +146,13 @@ app.directive('liquidTank', function ($parse, $http) {
         scope.totalSteps = 10;//scope.steps[_.random(scope.steps.length-1)];
 		console.log(scope.totalSteps);
 		console.log("current value in dir---"+window.api.currentValue+5);
-        scope.filledSteps = (window.api.currentValue-1)*10/(scope.totalSteps+6);//_.random(1,scope.totalSteps-1);//(window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
+        scope.filledSteps = (8-1)*10/(scope.totalSteps+6);//_.random(1,scope.totalSteps-1);//(window.api.currentValue/16)*10;//_.random(1,scope.totalSteps-1);
 	var mypercentage = (scope.filledSteps + (8 / 16)) * 10
 	if (mypercentage>100)
 	{
 	    mypercentage = 100;
 	}
-	$('#fillPercentage').text(mypercentage);
+	$('#fillPercentage').text(mypercentage + "%");
 //	$("#fillPercentage").text(fillPct*100+"%");
 	window.api.updateUI = function(){
         scope.draw();
