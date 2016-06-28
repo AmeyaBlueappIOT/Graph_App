@@ -66,6 +66,8 @@ app.controller('tankController', function($scope) {
     setInterval(function(){
 	    if (!$scope.run) return;
 	    if(!isNaN($scope.api.currTempData.timeNum) && !isNaN($scope.api.currentValue)){
+	    	console.log("Push-----------------------------------------------------------------------------");
+	    	
             $scope.data[0].values.push(
                 { x: $scope.api.currTempData.timeNum,
                   y: $scope.api.currentValue,
