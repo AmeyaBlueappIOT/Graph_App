@@ -45,7 +45,7 @@ app.controller('tankController', function($scope) {
                         xAxis: {
                 axisLabel:'Time',
                 tickFormat: function(d){
-                	console.log("---------d-----------"+d);
+                    console.log("-------------d-----------"+d);
                 if($scope.data[0].values[d]){
                     var label = $scope.data[0].values[d].label;
                         return label;
@@ -66,7 +66,7 @@ app.controller('tankController', function($scope) {
     setInterval(function(){
 	    if (!$scope.run) return;
 	    if(!isNaN($scope.api.currTempData.timeNum) && !isNaN($scope.api.currentValue)){
-	    	console.log("Push-----------------------------------------------------------------------------");
+	    	console.log("Push-------------------------------------------------------------------------------");
 	    	
             $scope.data[0].values.push(
                 { x: $scope.api.currTempData.timeNum,
